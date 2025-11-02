@@ -7,9 +7,11 @@
 source ~/codeTemplates/allTemplates
 source ~/codeTemplates/linuxTemplate
 source ~/codeTemplates/menu
+
 # Checks if things exist
 fileCreated $1
 filename=$fileCreated
+dateCreated
 
 if [ -e $filename ]
 then
@@ -21,15 +23,15 @@ then
         *.sh) 
             creatorName $2
             creator=$creators
-            dateCreated
             linuxCreate $filename $creator $madeOn
             ;;
         *)
             echo "Which template do you want? Type 0 for options?"
-            read -p "Template Choice: " temp_choice
+            read -p "Template Choice: " tempChoice
             creatorName $2
-            main_menu $filename $creators $temp_choice
+            main_menu $filename $creators $tempChoice $madeOn
             ;;
     esac
 fi
 
+vim $filename
