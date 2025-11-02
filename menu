@@ -12,22 +12,22 @@ main_menu(){
     filename=$1
     creator=$2
     choice=$3
+    dateCreated=$4
 
     case $choice in
         0)
             echo "1. Linux"
-            read -p "Template Choice: " answer
-            main_menu $filename $creator $answer
+            read -p "Template Choice: " choice
+            main_menu $filename $creator $choice $dateCreated
             ;;
         1)
-            SHfile="$filename.sh"
-            linuxCreate $SHfile $creator
-            chmod 644 $SHfile
+            echo "Here"
+            linuxCreate $filename $creator $dateCreated
             ;;
         *) 
-            echo "Not an option, please try again or type 0 for the options"
-            read -rp "Template Choice" answer
-            main_menu $filename $creator $answer
+            echo "Not an option, please try again or type 0 for the options: "
+            read -rp "Template Choice: " choice
+            main_menu $filename $creator $createdDate $choice $dateCreated
             ;;
     esac
 }

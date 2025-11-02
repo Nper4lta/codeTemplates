@@ -1,8 +1,21 @@
 #!/bin/bash
+# Created: Nathan
 # Created By: 2025-Nov-02_02:26
-# Created:  
 #
 # Last Modified: 
 
 
+linuxCreate(){
+    filename=$1
+    creator=$2
+    dateCreated=$3
+    createdDate=$(date -u +"%Y-%b-%d %R")
 
+    touch $filename
+
+    cat ~/codeTemplates/templates/linuxExample > $filename
+    
+    sed -i "2s/Created .*/Created By: $creator/" $filename
+    sed -i "3s/Created.*/Created: $dateCreated/" $filename
+    sed -i "5s/Last.*/Last Modified: $dateCreated/" $filename
+}
