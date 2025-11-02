@@ -2,26 +2,11 @@
 # 
 # Created: 2025-Nov-01 19:30
 #
-# Last Modified: 2025-Nov-02 02:11
+# Last Modified: 2025-Nov-02 17:00
 
 source ~/codeTemplates/allTemplates
 source ~/codeTemplates/linuxTemplate
 source ~/codeTemplates/menu
-
-
-# Check if permission is accurate
-checkPerms(){
-    case "$perms" in
-        [0-7][0-7][0-7])
-            chmod "${perms}" $filename
-            ;;
-        *) 
-            echo "Invalid permission: $permissionGranted"
-            read -p "Please try again with 3 digits ranging from 0-7 (ie 777): " $perms
-            checkPerms $perms
-            ;;
-    esac 
-}
 
 # Checks if things exist
 fileCreated $1
@@ -47,11 +32,8 @@ then
             main_menu $filename $creators $tempChoice $madeOn
             ;;
     esac
-    
-    echo "What permissions do you want to give this file?"
-    read -p "777 is all permissions for everyone, 700 gives all permissions just for owner: " perms
-
-    checkPerms $perms
+    read -p "What type of permission will you grant it? " perm
+    checkPerms $filename $perm
 fi
 
 

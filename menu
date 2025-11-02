@@ -21,7 +21,6 @@ main_menu(){
             main_menu $filename $creator $choice $dateCreated
             ;;
         1)
-            echo "Here"
             linuxCreate $filename $creator $dateCreated
             ;;
         *) 
@@ -32,3 +31,18 @@ main_menu(){
     esac
 }
 
+# Check if permission is accurate
+checkPerms(){
+    filename=$1
+    perms=$2
+    case "$perms" in
+        [0-7][0-7][0-7])
+            chmod $perms $filename
+            ;;
+        *)
+            echo "Invalid permission: $perms"
+            read -p "Please try again with 3 digits ranging from 0-7 (ie 777): " perm
+            checkPerms $filename $perm
+            ;;
+    esac
+}
