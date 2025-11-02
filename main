@@ -8,6 +8,21 @@ source ~/codeTemplates/allTemplates
 source ~/codeTemplates/linuxTemplate
 source ~/codeTemplates/menu
 
+
+# Check if permission is accurate
+checkPerms(){
+    case "$perms" in
+        [0-7][0-7][0-7])
+            chmod "${perms}" $filename
+            ;;
+        *) 
+            echo "Invalid permission: $permissionGranted"
+            read -p "Please try again with 3 digits ranging from 0-7 (ie 777): " $perms
+            checkPerms $perms
+            ;;
+    esac 
+}
+
 # Checks if things exist
 fileCreated $1
 filename=$fileCreated
@@ -32,6 +47,12 @@ then
             main_menu $filename $creators $tempChoice $madeOn
             ;;
     esac
+    
+    echo "What permissions do you want to give this file?"
+    read -p "777 is all permissions for everyone, 700 gives all permissions just for owner: " perms
+
+    checkPerms $perms
 fi
+
 
 vim $filename
