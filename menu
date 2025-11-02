@@ -1,0 +1,34 @@
+#!/bin/bash
+# Created By: Nathan
+# Created: 2025-Nov-02_02:23 
+#
+# Last Modified: 2025-Nov-02_02:23
+
+source ~/codeTemplates/allTemplates
+source ~/codeTemplates/linuxTemplate
+
+
+main_menu(){
+    filename=$1
+    creator=$2
+    choice=$3
+
+    case $choice in
+        0)
+            echo "1. Linux"
+            read -p "Template Choice: " answer
+            main_menu $filename $creator $answer
+            ;;
+        1)
+            SHfile="$filename.sh"
+            linuxCreate $SHfile $creator
+            chmod 644 $SHfile
+            ;;
+        *) 
+            echo "Not an option, please try again or type 0 for the options"
+            read -rp "Template Choice" answer
+            main_menu $filename $creator $answer
+            ;;
+    esac
+}
+
