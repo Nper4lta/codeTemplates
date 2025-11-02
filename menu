@@ -20,9 +20,7 @@ main_menu(){
             main_menu $filename $creator $answer
             ;;
         1)
-            SHfile="$filename.sh"
-            linuxCreate $SHfile $creator
-            chmod 644 $SHfile
+            linuxCreate $filename $creator
             ;;
         *) 
             echo "Not an option, please try again or type 0 for the options"

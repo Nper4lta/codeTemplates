@@ -11,10 +11,10 @@ linuxCreate(){
     dateCreated=$3
 
     touch $filename
-    chmod 644 $filename
 
-    cat ~/codeTemplates/templates/linuxExample $filename
-    sed -i "2s/Created .*/$modifiedForm/" $filename
+    cat ~/codeTemplates/templates/linuxExample > $filename
+    
+    sed -i "2s/Created .*/Created By: $creator/" $filename
     sed -i "3s/Created: .*/Created: $dateCreated/" $filename
-    sed -i "5s/[Ll]ast [Mm]odified: .*/Last Modified: $dateCreated/" $filename
+    sed -i "5s/Modified: .*/Last Modified: $dateCreated/" $filename
 }

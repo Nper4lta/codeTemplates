@@ -29,10 +29,7 @@ then
             read -p "Template Choice: " temp_choice
             creatorName $2
             main_menu $filename $creators $temp_choice
-            read -p "What permissions whill you give it? " permission
-            chmod $permission $filename
             ;;
     esac
 fi
 
-vim $filename
