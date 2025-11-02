@@ -3,17 +3,41 @@
 # Created: 2025-Nov-01 19:20
 #
 # Last Modified: 2025-Nov-01 19:20
-#
 
-fileCreated()
+fileCreated(){
+    if [ $# -eq 0 ]
+    then
+        read -p "Enter file name: " fileCreated
+    else 
+        fileCreated=$1
+    fi
+}
 
 creatorName(){
-    filename=$1
-    if [ -z $2 ]
+    if [ -z $1 ]
     then
         read -p "Enter your name: " creators
         echo "Created by: $creators"
     else
-        creators=$2
+        creators=$1
+    fi
+}
+
+dateCreated(){
+    madeOn="Created: $(date -u +"%Y-%b-%d %R")"
+}
+
+dateModified(){
+    modifiedForm="Last Modified: $(date -u +"%Y-%b-%d %R")"
+    sed -i "0,/[Mm]odified/ s/[Ll]ast [Mm]odified: .*/$modifiedForm/" $1
+}
+
+
+numCheck(){ 
+    if [[ ! $multipleFiles =~ [0-9] ]]
+    then 
+        echo "Not a number"
+        read -p "Please enter a number: " multipleFiles
+        numCheck $multipleFiles
     fi
 }
