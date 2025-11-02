@@ -1,0 +1,38 @@
+#!/bin/bash
+# 
+# Created: 2025-Nov-01 19:30
+#
+# Last Modified: 2025-Nov-02 02:11
+
+source ~/codeTemplates/allTemplates
+source ~/codeTemplates/linuxTemplate
+source ~/codeTemplates/menu
+# Checks if things exist
+fileCreated $1
+filename=$fileCreated
+
+if [ -e $filename ]
+then
+    # if file exists, changes date and time
+    dateModified $filename
+elif [ ! -f $filename ] 
+then
+    case $filename in 
+        *.sh) 
+            creatorName $2
+            creator=$creators
+            dateCreated
+            linuxCreate $filename $creator $madeOn
+            ;;
+        *)
+            echo "Which template do you want? Type 0 for options?"
+            read -p "Template Choice: " temp_choice
+            creatorName $2
+            main_menu $filename $creators $temp_choice
+            read -p "What permissions whill you give it? " permission
+            chmod $permission $filename
+            ;;
+    esac
+fi
+
+vim $filename

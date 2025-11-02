@@ -41,3 +41,5 @@ numCheck(){
         numCheck $multipleFiles
     fi
 }
+
+
