@@ -19,6 +19,13 @@ then
     dateModified $filename
 elif [ ! -f $filename ] 
 then
+    if [ -z $2 ]
+    then 
+        creatorName
+    else 
+        creators=$2
+    fi
+    
     case $filename in 
         *.sh) 
             creatorName $2
@@ -28,7 +35,6 @@ then
         *)
             echo "Which template do you want? Type 0 for options?"
             read -p "Template Choice: " tempChoice
-            creatorName $2
             main_menu $filename $creators $tempChoice $madeOn
             ;;
     esac
