@@ -2,11 +2,12 @@
 # 
 # Created: 2025-Nov-01 19:30
 #
-# Last Modified: 2025-Nov-05 08:13
+# Last Modified: 2025-Nov-05 08:20
 
 source ~/codeTemplates/allTemplates
 source ~/codeTemplates/linuxTemplate
 source ~/codeTemplates/htmlTemplate
+source ~/codeTemplates/sqlTemplate
 source ~/codeTemplates/menu
 
 # Checks if things exist
