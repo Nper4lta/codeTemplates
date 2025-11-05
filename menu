@@ -2,12 +2,12 @@
 # Created By: Nathan
 # Created: 2025-Nov-02_02:23 
 #
-# Last Modified: 2025-Nov-05 07:49
+# Last Modified: 2025-Nov-05 08:17
 
 source ~/codeTemplates/allTemplates
 source ~/codeTemplates/linuxTemplate
 source ~/codeTemplates/htmlTemplate
-
+source ~/codeTemplates/sqlTemplate
 
 main_menu(){
     filename=$1
@@ -17,7 +17,7 @@ main_menu(){
 
     case $choice in
         0)
-            echo "1. Linux 2. HTML"
+            echo "1. Linux 2. HTML 3. SQL"
             read -p "Template Choice: " choice
             main_menu $filename $creator $choice $dateCreated
             ;;
@@ -27,6 +27,10 @@ main_menu(){
         2)
             htmlName="$filename.html"
             htmlCreate $htmlName $creator $dateCreated
+            ;;
+        3)
+            sqlName="$filename.sql"
+            sqlCreate $sqlName $creator $dateCreated
             ;;
         *) 
             echo "Not an option, please try again or type 0 for the options: "

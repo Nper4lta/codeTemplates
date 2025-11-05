@@ -1,0 +1,19 @@
+#!/bin/bash
+# Created By: Nathan
+# Created: 2025-Nov-05_08:09
+#
+# Last Modified: 2025-Nov-05 08:14
+
+
+sqlCreate(){
+    filename=$1
+    creator=$2
+    dateCreated=$3
+    touch $filename
+    cat ~/codeTemplates/templates/sqlExample > $filename
+
+    sed -i "1s/filename/$filename/" $filename
+    sed -i "2s/Created .*/Created By: $creator/" $filename
+    sed -i "3s/Created.*/Created: $dateCreated/" $filename
+    sed -i "5s/Last.*/Last Modified: $dateCreated/" $filename
+}

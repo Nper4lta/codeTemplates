@@ -2,7 +2,7 @@
 # 
 # Created: 2025-Nov-01 19:30
 #
-# Last Modified: 2025-Nov-05 07:57
+# Last Modified: 2025-Nov-05 08:13
 
 source ~/codeTemplates/allTemplates
 source ~/codeTemplates/linuxTemplate
@@ -36,6 +36,10 @@ then
         *.html)
             creator=$creators
             htmlCreate $filename $creator $madeOn
+            ;;
+        *.sql)
+            creator=$creators
+            sqlCreate $filename $creator $madeOn
             ;;
         *)
             echo "Which template do you want? Type 0 for options?"
