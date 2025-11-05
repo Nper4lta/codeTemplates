@@ -2,10 +2,11 @@
 # Created By: Nathan
 # Created: 2025-Nov-02_02:23 
 #
-# Last Modified: 2025-Nov-02 17:25
+# Last Modified: 2025-Nov-05 07:49
 
 source ~/codeTemplates/allTemplates
 source ~/codeTemplates/linuxTemplate
+source ~/codeTemplates/htmlTemplate
 
 
 main_menu(){
@@ -16,12 +17,16 @@ main_menu(){
 
     case $choice in
         0)
-            echo "1. Linux"
+            echo "1. Linux 2. HTML"
             read -p "Template Choice: " choice
             main_menu $filename $creator $choice $dateCreated
             ;;
         1)
             linuxCreate $filename $creator $dateCreated
+            ;;
+        2)
+            htmlName="$filename.html"
+            htmlCreate $htmlName $creator $dateCreated
             ;;
         *) 
             echo "Not an option, please try again or type 0 for the options: "

@@ -2,10 +2,11 @@
 # 
 # Created: 2025-Nov-01 19:30
 #
-# Last Modified: 2025-Nov-02 17:00
+# Last Modified: 2025-Nov-05 07:57
 
 source ~/codeTemplates/allTemplates
 source ~/codeTemplates/linuxTemplate
+source ~/codeTemplates/htmlTemplate
 source ~/codeTemplates/menu
 
 # Checks if things exist
@@ -31,6 +32,10 @@ then
             creatorName $2
             creator=$creators
             linuxCreate $filename $creator $madeOn
+            ;;
+        *.html)
+            creator=$creators
+            htmlCreate $filename $creator $madeOn
             ;;
         *)
             echo "Which template do you want? Type 0 for options?"
