@@ -13,7 +13,7 @@ linuxCreate(){
 
     touch $filename
 
-    cat ~/codeTemplates/templates/linuxExample > $filename
+    cat ~/.config/tools/codeTemplates/templates/linuxExample > $filename
     
     sed -i "2s/Created .*/Created By: $creator/" $filename
     sed -i "3s/Created.*/Created: $dateCreated/" $filename

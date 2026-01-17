@@ -4,10 +4,10 @@
 #
 # Last Modified: 2025-Nov-05 08:20
 
-source ~/codeTemplates/allTemplates
-source ~/codeTemplates/linuxTemplate
-source ~/codeTemplates/htmlTemplate
-source ~/codeTemplates/sqlTemplate
+source ~/.config/tools/codeTemplates/allTemplates
+source ~/.config/tools/codeTemplates/linuxTemplate
+source ~/.config/tools/codeTemplates/htmlTemplate
+source ~/.config/tools/codeTemplates/sqlTemplate
 
 main_menu(){
     filename=$1
