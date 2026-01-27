@@ -24,7 +24,7 @@ creatorName(){
 }
 
 dateCreated(){
-    madeOn=$(date -u +"%Y-%b-%d_%R")
+    madeOn=$(date -u +"%Y-%b-%d %R")
 }
 
 dateModified(){

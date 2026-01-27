@@ -22,15 +22,14 @@ then
 elif [ ! -f $filename ] 
 then
     if [ -z $2 ]
-    then 
+    then
         creatorName
-    else 
+    else
         creators=$2
     fi
-    
+
     case $filename in 
         *.sh) 
-            creatorName $2
             creator=$creators
             linuxCreate $filename $creator $madeOn
             ;;
