@@ -2,7 +2,7 @@
 # Created By: Nathan
 # Created: 2025-Nov-02_02:23 
 #
-# Last Modified: 2025-Nov-05 08:20
+# Last Modified: 2026-Jan-27 20:56
 
 source ~/.config/tools/codeTemplates/allTemplates
 source ~/.config/tools/codeTemplates/linuxTemplate
@@ -22,7 +22,8 @@ main_menu(){
             main_menu $filename $creator $choice $dateCreated
             ;;
         1)
-            linuxCreate $filename $creator $dateCreated
+            bashName="$filename.sh"
+            linuxCreate $bashName $creator $dateCreated
             ;;
         2)
             htmlName="$filename.html"
