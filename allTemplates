@@ -2,12 +2,13 @@
 # Created By: Nathan Peralta
 # Created: 2025-Nov-01 19:20
 #
-# Last Modified: 2026-Jan-27 20:54
+# Last Modified: 2026-Apr-03 20:25
 
 fileCreated(){
     if [ $# -eq 0 ]
     then
-        read -p "Enter file name: " fileCreated
+        read -p "Enter project name: " fileCreated
+        read -p "Do you want to make a new project? " projectName
     else 
         fileCreated=$1
     fi
@@ -41,5 +42,12 @@ numCheck(){
         numCheck $multipleFiles
     fi
 }
+projectCreation(){
+    read -p "What is the project name? " projectName
+    mkdir $projectName
+    cd $projectName
+}
 
-
+tmuxSession(){
+    sessionName=$1
+}
